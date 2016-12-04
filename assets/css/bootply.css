@@ -1,0 +1,24 @@
+html,
+body {
+ height: 100%;
+ /* The html and body elements cannot have any padding or margin. */
+ padding-top: 30px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.navbar-fixed-top .nav {
+ padding: 8px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+ padding: 0 8px;
+}
+
+@media(min-width:768px) {
+ body {
+ padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+ }
+
+ .navbar-fixed-top .navbar-brand {
+ padding: 8px 0;
+ }
+}
