@@ -77,7 +77,7 @@
             <div class="intro-text">
                 <div class="intro-heading">CARIBIDAN-APP</div>
                 <div class="intro-lead-in">Temukan Bidan Terdekat dari Posisi Anda Berada!</div></br>
-                <a href="<?php echo base_url('C_akses')?>" class="page-scroll btn btn-xl">Temukan!</a>
+                <a href="<?php echo base_url('C_cari_bidan')?>" class="page-scroll btn btn-xl">Temukan!</a>
             </div>
         </div>
     </header>

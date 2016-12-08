@@ -69,21 +69,20 @@
                     <div class="bs-example">
                         <?php
                         $formData = array(
-                            'class' => 'form-horizontal',
-                            'method' => 'post'
+                            'class' => 'form-horizontal'
                         );
                         echo form_open_multipart('C_bidan/tambah_bidan', $formData);?>
                             <div class="form-group">
                                 <center>
                                     <label class="control-label col-xs-2"></label>
                                     <div class="col-xs-4">
-                                        <input class="form-control" type="text" name="location" id="location" placeholder="Lokasi Anda Berada" disabled/>
+                                        <input class="form-control" type="text" name="location" id="location" placeholder="Lokasi Anda Berada" readonly="TRUE"/>
                                     </div>
                                     <div class="col-xs-2">
-                                        <input class="form-control" type="text" name="lat" id="lat" placeholder="Latitude" disabled/>
+                                        <input class="form-control" type="text" name="lat" id="lat" placeholder="Latitude" readonly="TRUE"/>
                                     </div>
                                     <div class="col-xs-2">
-                                        <input class="form-control" type="text" name="lng" id="lng" placeholder="Longitude" disabled/>
+                                        <input class="form-control" type="text" name="lng" id="lng" placeholder="Longitude" readonly="TRUE"/>
                                 </center>
                             </div>
                             <div class="form-group">
@@ -100,7 +99,7 @@
                             <div class="form-group">
                                 <label class="control-label col-xs-3">Foto</label>
                                 <div class="col-xs-7">
-                                    <input type="file" class="form-control" name="userfile">
+                                    <input type="file" class="form-control" name="userfile" placeholder="Pilih foto anda">
                                 </div>
                             </div>
                             <div class="form-group">

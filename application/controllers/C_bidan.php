@@ -6,7 +6,7 @@ class C_bidan extends CI_Controller {
     public function __construct() //konstraktor untuk meload library, helper dan model
     {
         parent::__construct();
-        $this->load->helper(array('form', 'url'));
+        $this->load->helper(array('form','file','url'));
         $this->load->model('M_bidan');
         $this->load->library('session');
     }
@@ -19,6 +19,7 @@ class C_bidan extends CI_Controller {
         //form validation
         $this->load->helper(array('form', 'file', 'url'));
         $this->load->library('form_validation');
+        $this->load->library('upload');
         $this->form_validation->set_rules('id_ktp', 'ID KTP', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('tempat', 'Harga', 'required');
@@ -29,7 +30,6 @@ class C_bidan extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
-        $this->load->library('upload');
         $nmfile = "file_" . time();
         $config['upload_path'] = './assets/uploads/';
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -38,6 +38,7 @@ class C_bidan extends CI_Controller {
         $config['max_height'] = '5000';
         $config['file_name'] = $nmfile;
 
+        // $this->load->library('upload',$config);
         $this->upload->initialize($config);
 
         if ($this->form_validation->run() == FALSE and empty($_FILES['userfile']['name'])) {
@@ -86,9 +87,7 @@ class C_bidan extends CI_Controller {
                     'status' => $status,
                     'foto' => $foto['file_name']
                 );
-                $this->load->model('M_bidan');
                 $this->M_bidan->input_data_bidan($data_bidan);
-
                 //resize foto
                 $config2['image_library'] = 'gd2';
                 $config2['source_image'] = $this->upload->upload_path . $this->upload->file_name;
@@ -98,15 +97,15 @@ class C_bidan extends CI_Controller {
                 $config2['height'] = 200;
                 $this->image_lib->clear();
                 $this->image_lib->initialize($config2);
-
                 if (!$this->image_lib->resize()) {
                     $this->session->set_flashdata('errors', $this->image_lib->display_errors('', ''));
                 }
-
                 $this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-success\" id=\"alert\">Input data diri berhasil!</div></div>");
                 redirect('C_bidan');
             } else {
+                $error = array('error' => $this->upload->display_errors());
                 $this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Input data diri gagal!</div></div>");
+                // $this->session->set_flashdata('error',$error['error']);
                 redirect('C_bidan');
             }
         }

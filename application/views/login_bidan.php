@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password">
-                    <input type="hidden" clas="form-control" name="status" value="0">
+                    <input type="hidden" clas="form-control" name="status" value="1">
                 </div>
                 <input type="submit" class="btn btn-block btn-custom-green" value="LOGIN" />
                 <div class="text-center forget">

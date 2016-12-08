@@ -35,7 +35,16 @@
                 <tbody>
                     <?php foreach ($data_bidan as $bidan) : ?>
                         <tr>
-                            <td><?php echo $bidan->foto ?></td>
+                            <td>
+                            <center>
+                                <?=
+                                img([
+                                    'src' => 'assets/uploads/thumb/' . $bidan->foto,
+                                    'style' => 'max-width: 100%; max-height: 100%; border: 1px;'
+                                ])
+                                ?>
+                            </center>
+                            </td>
                             <td><?php echo $bidan->id_ktp ?></td>
                             <td><?php echo $bidan->nama ?></td>
                             <td><?php echo $bidan->tempat ?></td>

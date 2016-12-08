@@ -28,14 +28,14 @@ class C_akses_bidan extends CI_Controller {
           $cek = $this->M_bidan->cek_bidan($email,$password,$status);
           if (count($cek) == 1) {
               foreach ($cek as $cek) {
-                  $id_bidan = $cek['id_ktp'];
+                  $id_ktp = $cek['id_ktp'];
               }
               $this->session->set_userdata(array(
                   'isLogin' => TRUE,
                   'email' => $email,
-                  'id_ktp' => $id_ktp,
+                  'id_ktp' => $id_ktp
               ));
-              echo "Berhasil Login";
+              redirect('C_bidan_homepage');
           } else {
               $this->session->set_flashdata("pesan", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Username atau password anda kurang tapat!</div></div>");
               redirect('C_akses_bidan');

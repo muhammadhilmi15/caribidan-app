@@ -37,6 +37,27 @@ class M_bidan extends CI_Model
         $this->db->insert('data_bidan', $data_bidan);
         return TRUE;
     }
+
+    public function get_data($where) {
+        $query = "SELECT * FROM data_bidan WHERE id_ktp='" . $where . "'";
+        $hasil = $this->db->query($query);
+        if ($hasil->num_rows() > 0) {
+            return $hasil->result();
+        } else {
+            return array();
+        }
+    }
+
+    public function get_semua_bidan() {
+        $query = "SELECT * FROM data_bidan";
+        $hasil = $this->db->query($query);
+        if ($hasil->num_rows() > 0) {
+            return $hasil->result();
+        } else {
+            return array();
+        }
+    }
+
 }
 
 ?>
