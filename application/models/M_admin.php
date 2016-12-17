@@ -6,7 +6,7 @@ class M_admin extends CI_Model
 {
     public function data_bidan()
     {
-        $query = "SELECT * FROM data_bidan";
+        $query = "SELECT * FROM data_bidan,lampiran WHERE data_bidan.id_ktp = lampiran.id_ktp";
         $hasil = $this->db->query($query);
         if ($hasil->num_rows() > 0) {
             return $hasil->result();

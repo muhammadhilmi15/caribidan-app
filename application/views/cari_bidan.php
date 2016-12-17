@@ -6,6 +6,9 @@
 .hidden {
     display: none;
 }
+.map {
+    margin-top: 20px;
+}
 #map { height: 100%; width: 100%; padding-top: 15px}
 </style>
 <html lang="en">
@@ -20,21 +23,23 @@
     <?php echo $map['js']; ?>
 </head>
 <body>
-    <div class="form-group">
-        <center>
-            <div class="col-xs-1">
-                <input class="form-control" type="hidden" name="lat" id="lat" placeholder="Latitude"/>
-            </div>
-            <div class="col-xs-12">
-                <input class="form-control" type="text" name="location" id="location" placeholder="Lokasi Anda Berada"/>
-            </div>
-            <div class="col-xs-1">
-                <input class="form-control" type="hidden" name="lng" id="lng" placeholder="Longitude"/>
-            </div>
-        </center>
-    </div>
-    <div>
-        <?php echo $map['html']; ?>
+    <div class="row">
+        <div class="form-group">
+            <center>
+                <div class="col-xs-1">
+                    <input class="form-control" type="hidden" name="lat" id="lat" placeholder="Latitude"/>
+                </div>
+                <div class="col-xs-12">
+                    <input class="form-control" type="text" name="location" id="location" placeholder="Lokasi Anda Berada"/>
+                </div>
+                <div class="col-xs-1">
+                    <input class="form-control" type="hidden" name="lng" id="lng" placeholder="Longitude"/>
+                </div>
+            </center>
+        </div>
+        <div>
+            <?php echo $map['html']; ?>
+        </div>
     </div>
 </body>
 <script type="text/javascript">

@@ -29,6 +29,7 @@
                         <th>No. HP</th>
                         <th>Gender</th>
                         <th>Email</th>
+                        <th>Ijazah</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -53,6 +54,16 @@
                             <td><?php echo $bidan->no_hp ?></td>
                             <td><?php echo $bidan->jenis_kelamin ?></td>
                             <td><?php echo $bidan->email ?></td>
+                            <td>
+                            <center>
+                                <?=
+                                img([
+                                    'src' => 'assets/uploads/thumb/' . $bidan->ijazah,
+                                    'style' => 'max-width: 100%; max-height: 100%; border: 1px;'
+                                ])
+                                ?>
+                                </center>
+                            </td>
                             <td style="width:120px;">
                                 <?php if ($bidan->status == 0) { ?>
                                     <a href="" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-search"></i></a>

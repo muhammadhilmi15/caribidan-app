@@ -27,9 +27,8 @@ class C_cari_bidan extends CI_Controller {
 			// Specify an address or lat/long for where the marker should appear.
 
 			$marker['position'] = $row->lat.', '.$row->lng;
-			$content = "<strong>".$row->nama." </strong>";
+            $content = "<strong>".$row->nama." | ".$row->no_hp." | ".$row->email." </strong>";
 			$marker['infowindow_content'] = $content;
-			$marker['title'] = $row->nama;
 			// Once all the marker parameters have been specified lets add the marker to our map
 			$this->googlemaps->add_marker($marker);
 		}

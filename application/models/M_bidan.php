@@ -38,6 +38,11 @@ class M_bidan extends CI_Model
         return TRUE;
     }
 
+    public function input_berkas_bidan($data_bidan) {
+        $this->db->insert('lampiran', $data_bidan);
+        return TRUE;
+    }
+
     public function get_data($where) {
         $query = "SELECT * FROM data_bidan WHERE id_ktp='" . $where . "'";
         $hasil = $this->db->query($query);
@@ -56,6 +61,11 @@ class M_bidan extends CI_Model
         } else {
             return array();
         }
+    }
+
+    public function kritikdansaran($kritikdansaran) {
+        $this->db->insert('kritik_dan_saran', $kritikdansaran);
+        return TRUE;
     }
 
 }
